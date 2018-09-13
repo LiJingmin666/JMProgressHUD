@@ -15,10 +15,12 @@
     UIView  *view = isWindow? (UIView*)[UIApplication sharedApplication].delegate.window:[self getCurrentUIVC].view;
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     hud.label.text = message ? message : @"加载中.....";
-    hud.label.font = [UIFont systemFontOfSize:15];
+    hud.label.font = [UIFont systemFontOfSize:16];
+    hud.label.textColor = [UIColor whiteColor];
     hud.removeFromSuperViewOnHide = YES;
-    hud.backgroundView.style = MBProgressHUDBackgroundStyleSolidColor;
-    hud.backgroundView.color = (NO) ? [UIColor colorWithWhite:0.f alpha:.2f] : [UIColor clearColor];
+    hud.contentColor = [UIColor whiteColor];
+    hud.bezelView.color = [UIColor blackColor];
+    hud.bezelView.alpha = .95f;
     return hud;
 }
 #pragma mark-------------------- show Tip----------------------------
@@ -75,22 +77,22 @@
 
 + (void)showSuccessMessage:(NSString *)Message
 {
-    NSString *name =@"MBProgressHUD+JDragon.bundle/MBProgressHUD/MBHUD_Success";
+    NSString *name =@"JMProgressHUD+JDragon.bundle/MBProgressHUD/MBHUD_Success";
     [self showCustomIconInWindow:name message:Message];
 }
 + (void)showErrorMessage:(NSString *)Message
 {
-    NSString *name =@"MBProgressHUD+JDragon.bundle/MBProgressHUD/MBHUD_Error";
+    NSString *name =@"JMProgressHUD+JDragon.bundle/MBProgressHUD/MBHUD_Error";
     [self showCustomIconInWindow:name message:Message];
 }
 + (void)showInfoMessage:(NSString *)Message
 {
-    NSString *name =@"MBProgressHUD+JDragon.bundle/MBProgressHUD/MBHUD_Info";
+    NSString *name =@"JMProgressHUD+JDragon.bundle/MBProgressHUD/MBHUD_Info";
     [self showCustomIconInWindow:name message:Message];
 }
 + (void)showWarnMessage:(NSString *)Message
 {
-    NSString *name =@"MBProgressHUD+JDragon.bundle/MBProgressHUD/MBHUD_Warn";
+    NSString *name =@"JMProgressHUD+JDragon.bundle/MBProgressHUD/MBHUD_Warn";
     [self showCustomIconInWindow:name message:Message];
 }
 + (void)showCustomIconInWindow:(NSString *)iconName message:(NSString *)message
