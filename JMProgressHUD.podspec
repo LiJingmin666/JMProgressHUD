@@ -32,11 +32,11 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'JMProgressHUD/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'JMProgressHUD' => ['JMProgressHUD/Assets/*.png']
-  # }
+  s.resource_bundles = {
+     'JMProgressHUD' => ['JMProgressHUD/Assets/*.bundle']
+   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'MBProgressHUD', '~> 1.1.0'
 end
