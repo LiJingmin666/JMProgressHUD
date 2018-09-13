@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'JMProgressHUD_Example' do
+  pod 'JMProgressHUD', :path => '../'
+
+  target 'JMProgressHUD_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
