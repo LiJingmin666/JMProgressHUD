@@ -8,7 +8,7 @@
 
 #import <MBProgressHUD/MBProgressHUD.h>
 
-@interface MBProgressHUD (JDragon)
+@interface MBProgressHUD (JingMin)
 
 + (void)showTipMessageInWindow:(NSString*)message;
 + (void)showTipMessageInView:(NSString*)message;

@@ -6,9 +6,9 @@
 //  Copyright © 2017年 JDragon. All rights reserved.
 //
 
-#import "MBProgressHUD+JDragon.h"
+#import "MBProgressHUD+JingMin.h"
 
-@implementation MBProgressHUD (JDragon)
+@implementation MBProgressHUD (JingMin)
 
 + (MBProgressHUD*)createMBProgressHUDviewWithMessage:(NSString*)message isWindiw:(BOOL)isWindow
 {
@@ -17,8 +17,7 @@
     hud.label.text = message ? message : @"加载中.....";
     hud.label.font = [UIFont systemFontOfSize:15];
     hud.removeFromSuperViewOnHide = YES;
-    hud.backgroundView.style = MBProgressHUDBackgroundStyleSolidColor;
-    hud.backgroundView.color = (NO) ? [UIColor colorWithWhite:0.f alpha:.2f] : [UIColor clearColor];
+    hud.dimBackground = NO;
     return hud;
 }
 #pragma mark-------------------- show Tip----------------------------

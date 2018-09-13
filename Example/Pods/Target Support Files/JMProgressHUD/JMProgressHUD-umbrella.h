@@ -10,7 +10,7 @@
 #endif
 #endif
 
-#import "MBProgressHUD+JDragon.h"
+#import "MBProgressHUD+JingMin.h"
 
 FOUNDATION_EXPORT double JMProgressHUDVersionNumber;
 FOUNDATION_EXPORT const unsigned char JMProgressHUDVersionString[];
