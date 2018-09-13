@@ -17,7 +17,8 @@
     hud.label.text = message ? message : @"加载中.....";
     hud.label.font = [UIFont systemFontOfSize:15];
     hud.removeFromSuperViewOnHide = YES;
-    hud.dimBackground = NO;
+    hud.backgroundView.style = MBProgressHUDBackgroundStyleSolidColor;
+    hud.backgroundView.color = [UIColor colorWithRed:0.000 green:0.000 blue:0.000 alpha:.2f];
     return hud;
 }
 #pragma mark-------------------- show Tip----------------------------
