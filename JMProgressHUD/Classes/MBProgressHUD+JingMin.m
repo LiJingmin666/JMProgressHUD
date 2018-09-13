@@ -18,7 +18,7 @@
     hud.label.font = [UIFont systemFontOfSize:15];
     hud.removeFromSuperViewOnHide = YES;
     hud.backgroundView.style = MBProgressHUDBackgroundStyleSolidColor;
-    hud.backgroundView.color = [UIColor colorWithRed:0.000 green:0.000 blue:0.000 alpha:.2f];
+    hud.backgroundView.color = (NO) ? [UIColor colorWithWhite:0.f alpha:.2f] : [UIColor clearColor];
     return hud;
 }
 #pragma mark-------------------- show Tip----------------------------
