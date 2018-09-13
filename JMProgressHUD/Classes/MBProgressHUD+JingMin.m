@@ -14,11 +14,10 @@
 {
     UIView  *view = isWindow? (UIView*)[UIApplication sharedApplication].delegate.window:[self getCurrentUIVC].view;
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
-    hud.color = [UIColor blackColor];
-    hud.alpha = .8f;
     hud.label.text = message ? message : @"加载中.....";
     hud.label.font = [UIFont systemFontOfSize:15];
     hud.removeFromSuperViewOnHide = YES;
+    hud.backgroundView.blurEffectStyle = UIBlurEffectStyleDark;
     hud.backgroundView.style = MBProgressHUDBackgroundStyleSolidColor;
     hud.backgroundView.color = (NO) ? [UIColor colorWithWhite:0.f alpha:.2f] : [UIColor clearColor];
     return hud;
