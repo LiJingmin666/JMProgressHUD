@@ -77,12 +77,12 @@
 
 + (void)showSuccessMessage:(NSString *)Message
 {
-    NSString *name = @"JMProgressHUD.bundle/JMProgressHUD.bundle/MBHUD_Success@2x.png";
+    NSString *name = @"JMProgressHUD.bundle/JMProgressHUD.bundle/success@2x.png";
     [self showCustomIconInWindow:name message:Message];
 }
 + (void)showErrorMessage:(NSString *)Message
 {
-    NSString *name = @"JMProgressHUD.bundle/JMProgressHUD.bundle/MBHUD_Error@2x.png";
+    NSString *name = @"JMProgressHUD.bundle/JMProgressHUD.bundle/failed@2x.png";
     [self showCustomIconInWindow:name message:Message];
 }
 + (void)showInfoMessage:(NSString *)Message
@@ -92,7 +92,7 @@
 }
 + (void)showWarnMessage:(NSString *)Message
 {
-    NSString *name = @"JMProgressHUD.bundle/JMProgressHUD.bundle/MBHUD_Warn@2x.png";
+    NSString *name = @"JMProgressHUD.bundle/JMProgressHUD.bundle/warning@2x.png";
     [self showCustomIconInWindow:name message:Message];
 }
 + (void)showCustomIconInWindow:(NSString *)iconName message:(NSString *)message
