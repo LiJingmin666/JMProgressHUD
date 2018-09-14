@@ -77,22 +77,22 @@
 
 + (void)showSuccessMessage:(NSString *)Message
 {
-    NSString *name =@"JMProgressHUD+JDragon.bundle/MBProgressHUD/MBHUD_Success";
+    NSString *name = @"JMProgressHUD.bundle/JMProgressHUD.bundle/MBHUD_Success@2x.png";
     [self showCustomIconInWindow:name message:Message];
 }
 + (void)showErrorMessage:(NSString *)Message
 {
-    NSString *name =@"JMProgressHUD+JDragon.bundle/MBProgressHUD/MBHUD_Error";
+    NSString *name = @"JMProgressHUD.bundle/JMProgressHUD.bundle/MBHUD_Error@2x.png";
     [self showCustomIconInWindow:name message:Message];
 }
 + (void)showInfoMessage:(NSString *)Message
 {
-    NSString *name =@"JMProgressHUD+JDragon.bundle/MBProgressHUD/MBHUD_Info";
+    NSString *name = @"JMProgressHUD.bundle/JMProgressHUD.bundle/MBHUD_Info@2x.png";
     [self showCustomIconInWindow:name message:Message];
 }
 + (void)showWarnMessage:(NSString *)Message
 {
-    NSString *name =@"JMProgressHUD+JDragon.bundle/MBProgressHUD/MBHUD_Warn";
+    NSString *name = @"JMProgressHUD.bundle/JMProgressHUD.bundle/MBHUD_Warn@2x.png";
     [self showCustomIconInWindow:name message:Message];
 }
 + (void)showCustomIconInWindow:(NSString *)iconName message:(NSString *)message
@@ -107,7 +107,10 @@
 + (void)showCustomIcon:(NSString *)iconName message:(NSString *)message isWindow:(BOOL)isWindow
 {
     MBProgressHUD *hud  =  [self createMBProgressHUDviewWithMessage:message isWindiw:isWindow];
-    hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:iconName]];
+    
+    UIImage *iamge = [UIImage imageNamed:iconName];
+    
+    hud.customView = [[UIImageView alloc] initWithImage:iamge];
     hud.mode = MBProgressHUDModeCustomView;
     [hud hideAnimated:YES afterDelay:2];
     
@@ -120,7 +123,7 @@
 }
 #pragma mark --- 获取当前Window试图---------
 //获取当前屏幕显示的viewcontroller
-+(UIViewController*)getCurrentWindowVC
++ (UIViewController*)getCurrentWindowVC
 {
 //    UIViewController *result = nil;
     UIWindow * window = [[UIApplication sharedApplication] keyWindow];
@@ -139,7 +142,7 @@
     //1、通过present弹出VC，appRootVC.presentedViewController不为nil
     if (appRootVC.presentedViewController) {
         nextResponder = appRootVC.presentedViewController;
-    }else{
+    } else {
         //2、通过navigationcontroller弹出VC
         //        NSLog(@"subviews == %@",[window subviews]);
         UIView *frontView = [[window subviews] objectAtIndex:0];
@@ -148,9 +151,7 @@
     return nextResponder;
 }
 
-+(UINavigationController*)getCurrentNaVC
-{
-    
++ (UINavigationController*)getCurrentNaVC {
     UIViewController  *viewVC = (UIViewController*)[ self getCurrentWindowVC ];
     UINavigationController  *naVC;
     if ([viewVC isKindOfClass:[UITabBarController class]]) {
@@ -161,18 +162,16 @@
                 naVC = (UINavigationController*)naVC.presentedViewController;
             }
         }
-    }else
+    } else
         if ([viewVC isKindOfClass:[UINavigationController class]]) {
-            
-            naVC  = (UINavigationController*)viewVC;
+            naVC  = (UINavigationController *) viewVC;
             if (naVC.presentedViewController) {
                 while (naVC.presentedViewController) {
                     naVC = (UINavigationController*)naVC.presentedViewController;
                 }
             }
-        }else
-            if ([viewVC isKindOfClass:[UIViewController class]])
-            {
+        } else
+            if ([viewVC isKindOfClass:[UIViewController class]]) {
                 if (viewVC.navigationController) {
                     return viewVC.navigationController;
                 }
@@ -181,32 +180,26 @@
     return naVC;
 }
 
-+(UIViewController*)getCurrentUIVC
-{
-    UIViewController   *cc;
++ (UIViewController*)getCurrentUIVC {
+    UIViewController *cc;
     UINavigationController  *na = (UINavigationController*)[[self class] getCurrentNaVC];
     if ([na isKindOfClass:[UINavigationController class]]) {
         cc =  na.viewControllers.lastObject;
-        
         if (cc.childViewControllers.count>0) {
-            
             cc = [[self class] getSubUIVCWithVC:cc];
         }
-    }else
-    {
+    } else {
         cc = (UIViewController*)na;
     }
     return cc;
 }
-+(UIViewController *)getSubUIVCWithVC:(UIViewController*)vc
-{
+
++ (UIViewController *)getSubUIVCWithVC:(UIViewController*)vc {
     UIViewController   *cc;
     cc =  vc.childViewControllers.lastObject;
     if (cc.childViewControllers>0) {
-        
         [[self class] getSubUIVCWithVC:cc];
-    }else
-    {
+    } else {
         return cc;
     }
     return cc;
