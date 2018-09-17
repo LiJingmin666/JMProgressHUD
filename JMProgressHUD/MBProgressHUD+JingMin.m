@@ -12,15 +12,17 @@
 
 + (MBProgressHUD*)createMBProgressHUDviewWithMessage:(NSString*)message isWindiw:(BOOL)isWindow
 {
-    UIView  *view = isWindow? (UIView*)[UIApplication sharedApplication].delegate.window:[self getCurrentUIVC].view;
+    UIView  *view = isWindow? (UIView *)[UIApplication sharedApplication].delegate.window:[self getCurrentUIVC].view;
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    [hud.label setFrame:CGRectMake(0, 30, 100, 20)];
     hud.label.text = message ? message : @"加载中.....";
-    hud.label.font = [UIFont systemFontOfSize:16];
     hud.label.textColor = [UIColor whiteColor];
+    hud.label.font = [UIFont boldSystemFontOfSize:16];
     hud.removeFromSuperViewOnHide = YES;
     hud.contentColor = [UIColor whiteColor];
     hud.bezelView.color = [UIColor blackColor];
     hud.bezelView.alpha = .95f;
+    [hud updateConstraints];
     return hud;
 }
 #pragma mark-------------------- show Tip----------------------------
