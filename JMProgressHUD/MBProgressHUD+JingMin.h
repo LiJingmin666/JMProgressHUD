@@ -31,6 +31,8 @@
 + (void)showCustomIconInWindow:(NSString *)iconName message:(NSString *)message;
 + (void)showCustomIconInView:(NSString *)iconName message:(NSString *)message;
 
++ (void)showMessage:(NSString *)message;
++ (void)showMessageWithResponseCode:(NSInteger )code;
 
 + (void)hideHUD;
 

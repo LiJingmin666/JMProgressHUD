@@ -117,6 +117,61 @@
     [hud hideAnimated:YES afterDelay:2];
     
 }
+
++ (void)showMessageWithResponseCode:(NSInteger )code {
+    NSString *message = nil;
+    switch (code) {
+        case 400:{
+            message = @"错误请求";
+        } break;
+        case 401: {
+            message =  @"未授权，未登录";
+        } break;
+        case 403: {
+            message =  @"无权限";
+        } break;
+        case 404: {
+            message =  @"未找到资源";
+        } break;
+        case 405: {
+            message =  @"未找到资源";
+        } break;
+        case 422: {
+            message =  @"常规错误";
+        } break;
+        case 500: {
+            message =  @"服务器错误";
+        } break;
+        default: {
+            message = nil;
+        }
+    }
+    
+    if (message) {
+        [self showMessage:message];
+    }
+}
+
++ (void)showMessage:(NSString *)message
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
+    hud.detailsLabel.text = message;
+    hud.detailsLabel.font = [UIFont boldSystemFontOfSize:16];
+    hud.mode = MBProgressHUDModeCustomView;
+    hud.margin = 15.f;
+    // 设置hub颜色
+    hud.bezelView.color = [UIColor blackColor];
+    hud.bezelView.alpha = 0.9;
+    hud.bezelView.layer.cornerRadius = 5.0f;
+    // 设置边框颜色
+    // 隐藏时候从父控件中移除
+    hud.removeFromSuperViewOnHide = YES;
+    hud.userInteractionEnabled = NO;
+    // 1.3秒之后再消失
+    hud.detailsLabel.textColor = [UIColor whiteColor];
+    [hud hideAnimated:YES afterDelay:2];
+}
+
 + (void)hideHUD
 {
     UIView  *winView =(UIView*)[UIApplication sharedApplication].delegate.window;
