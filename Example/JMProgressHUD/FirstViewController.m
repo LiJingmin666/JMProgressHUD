@@ -78,7 +78,7 @@
             [MBProgressHUD showWarnMessage:@"显示警告"];
             break;
         case 6:
-            [MBProgressHUD showErrorMessage:@"显示错误"];
+            [MBProgressHUD showErrorMessage:@"显示错误错误展示弹窗错误展示弹窗错误展示弹窗错误展示弹窗错误展示弹窗错误展示弹窗"];
             break;
         case 7:
             [MBProgressHUD showInfoMessage:@"显示信息"];
