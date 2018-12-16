@@ -15,6 +15,7 @@
     UIView  *view = isWindow? (UIView *)[UIApplication sharedApplication].delegate.window:[self getCurrentUIVC].view;
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     [hud.label setFrame:CGRectMake(0, 30, 100, 20)];
+    hud.label.numberOfLines = 0;
     hud.label.text = message ? message : @"加载中.....";
     hud.label.textColor = [UIColor whiteColor];
     hud.label.font = [UIFont boldSystemFontOfSize:16];
