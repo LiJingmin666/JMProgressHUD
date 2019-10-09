@@ -181,6 +181,7 @@
     [self hideHUDForView:[self getCurrentUIVC].view animated:YES];
 }
 #pragma mark --- 获取当前Window试图---------
+
 //获取当前屏幕显示的viewcontroller
 + (UIViewController*)getCurrentWindowVC
 {
@@ -204,14 +205,38 @@
     } else {
         //2、通过navigationcontroller弹出VC
         //        NSLog(@"subviews == %@",[window subviews]);
-        UIView *frontView = [[window subviews] objectAtIndex:0];
-        nextResponder = [frontView nextResponder];
+//        UIView *frontView = [[window subviews] objectAtIndex:0];
+//        nextResponder = [frontView nextResponder];
+      nextResponder = [self getCurrentVCFrom:appRootVC];
     }
     return nextResponder;
 }
 
++ (UIViewController *)getCurrentVCFrom:(UIViewController *)rootVC
+{
+    UIViewController *currentVC;
+    
+    if ([rootVC presentedViewController]) {
+        // 视图是被presented出来的
+        rootVC = [rootVC presentedViewController];
+    }
+    if ([rootVC isKindOfClass:[UITabBarController class]]) {
+        // 根视图为UITabBarController
+        currentVC = [self getCurrentVCFrom:[(UITabBarController *)rootVC selectedViewController]];
+        
+    } else if ([rootVC isKindOfClass:[UINavigationController class]]){
+        // 根视图为UINavigationController
+        currentVC = [self getCurrentVCFrom:[(UINavigationController *)rootVC visibleViewController]];
+        
+    } else {
+        // 根视图为非导航类
+        currentVC = rootVC;
+    }
+    return currentVC;
+}
+
 + (UINavigationController*)getCurrentNaVC {
-    UIViewController  *viewVC = (UIViewController*)[ self getCurrentWindowVC ];
+    UIViewController  *viewVC = (UIViewController*)[ self getCurrentWindowVC];
     UINavigationController  *naVC;
     if ([viewVC isKindOfClass:[UITabBarController class]]) {
         UITabBarController  *tabbar = (UITabBarController*)viewVC;
