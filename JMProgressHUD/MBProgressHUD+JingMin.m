@@ -22,7 +22,8 @@
     hud.label.font = [UIFont boldSystemFontOfSize:16];
     hud.removeFromSuperViewOnHide = YES;
     hud.contentColor = [UIColor whiteColor];
-    hud.bezelView.color = [UIColor blackColor];
+    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
+    hud.bezelView.color = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.8];
     hud.bezelView.alpha = .95f;
     [hud updateConstraints];
     return hud;
