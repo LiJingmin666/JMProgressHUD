@@ -163,8 +163,9 @@
     hud.mode = MBProgressHUDModeCustomView;
     hud.margin = 15.f;
     // 设置hub颜色
-    hud.bezelView.color = [UIColor blackColor];
-    hud.bezelView.alpha = 0.9;
+    hud.bezelView.color = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.8];
+    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
+    hud.bezelView.alpha = 0.95;
     hud.bezelView.layer.cornerRadius = 5.0f;
     // 设置边框颜色
     // 隐藏时候从父控件中移除
