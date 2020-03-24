@@ -128,7 +128,7 @@
             message = @"错误请求";
         } break;
         case 401: {
-            message =  @"未授权，未登录";
+            message =  @"登录过期,请重新登录";
         } break;
         case 403: {
             message =  @"无权限";
@@ -151,7 +151,7 @@
     }
     
     if (message) {
-        [self showMessage:message];
+        [self showWarnMessage:message];
     }
 }
 
