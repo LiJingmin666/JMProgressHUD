@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JMProgressHUD'
-  s.version          = '0.2.8'
+  s.version          = '0.2.9'
   s.summary          = 'A short description of JMProgressHUD.'
 
 # This description is used to generate tags and improve search results.
@@ -24,7 +24,7 @@ TODO: Add long description of the pod here.
   s.homepage         = 'https://github.com/LiJingmin666/JMProgressHUD'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'LiJingmin666' => 'lijingmin@agapday.com' }
+  s.author           = { 'LiJingmin666' => '1563248472@qq.com' }
   s.source           = { :git => 'https://github.com/LiJingmin666/JMProgressHUD.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
