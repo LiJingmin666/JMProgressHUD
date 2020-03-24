@@ -22,7 +22,7 @@ pod 'JMProgressHUD'
 
 ## Author
 
-LiJingmin666, lijingmin@agapday.com
+LiJingmin666, 1563248472@qq.com
 
 ## License
 
